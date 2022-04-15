@@ -1,0 +1,16 @@
+//flex布局的复用
+@mixin flex($hov:space-between,$col:center) {
+  display: flex;
+  justify-content: $hov;
+  align-items: $col;
+}
+
+//图标的插入：比如购物车图标，logo
+//将图标的位置设置为a标签，然后转为inline-block
+@mixin bgImg($w:0,$h:0,$img:'',$size:contain){
+  display: inline-block;
+  width: $w;
+  height: $h;
+  background: url($img) no-repeat center;
+  background-size: $size;//默认完全填充
+}

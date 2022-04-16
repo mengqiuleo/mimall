@@ -2,6 +2,7 @@ import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import router from './router'
+import VueLazyLoad from 'vue-lazyload'
 import App from './App.vue'
 
 //# 根据前端的跨域方式做调整
@@ -21,6 +22,9 @@ axios.interceptors.response.use(function(response){
 })
 
 Vue.use(VueAxios,axios)
+Vue.use(VueLazyLoad,{
+  loading:'/imgs/loading-svg/loading-bars.svg'
+})
 Vue.config.productionTip = false
 
 new Vue({

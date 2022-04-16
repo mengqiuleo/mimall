@@ -18,6 +18,9 @@ export default {
 }
 </script>
 
-<style>
-@import './assets/scss/reset.scss'
+<style lang="scss">
+/* 引入样式必须加后缀scss */
+@import './assets/scss/reset.scss';
+@import './assets/scss/config.scss';
+@import './assets/scss/button.scss'
 </style>

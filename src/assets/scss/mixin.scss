@@ -32,3 +32,14 @@
   background: url($img) no-repeat center;
   background-size: contain;
 }
+@mixin border($bw:1px,$bc:$colorF,$bs:solid) {
+  border: $bw $bs $bc; 
+}
+@mixin height($h:0,$lh:$h) {
+  height: $h;
+  line-height: $lh;
+}
+@mixin wH($w:0,$h:0) {
+  width:$w;
+  height: $h;
+}

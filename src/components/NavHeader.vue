@@ -12,7 +12,7 @@
           <a href="javascript:;" v-if="username">{{username}}</a>
           <a href="javascript:;" v-if="!username" @click="login()">登录</a>
           <a href="javascript:;" v-if="username" @click="loginOut()">退出</a>
-          <a href="javascript:;" v-if="username">我的订单</a>
+          <a href="/#/order/list" v-if="username">我的订单</a>
           <a href="javascript:;" class="my-cart" @click="goToCart()">
             <span class="icon-cart"></span>
             购物车({{cartCount}})
@@ -168,6 +168,8 @@
 
 <script>
 import { mapState } from "vuex";
+import { Message } from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css';
 
 export default {
   name: 'nav-header',
@@ -209,7 +211,7 @@ export default {
     },
     loginOut(){
       this.axios.post('/user/logout').then(()=>{
-        alert('退出成功');
+        Message.success('退出成功');
         this.$cookie.set('userId','',{expires:'-1'});
         this.$store.dispatch('saveUserName','');
         this.$store.dispatch('saveCartCount','0');
@@ -226,7 +228,10 @@ export default {
   },
   mounted(){
     this.getProductList();
-    this.getCartCount();
+    let params = this.$route.params;
+    if(params && params.from =='login'){
+      this.getCartCount();
+    }
   }
 }
 </script>

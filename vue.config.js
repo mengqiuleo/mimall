@@ -14,4 +14,7 @@ module.exports = {
   },
   //关闭ESlint
   //lintOnSave:false
+  // chainWebpack:(config) => {
+  //   config.plugins.delete('prefetch');
+  // }
 }

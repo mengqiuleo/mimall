@@ -53,8 +53,15 @@
             :total="total"
             @current-change="handleChange">
           </el-pagination>
-          <div class="load-more">
+          <div class="load-more" v-if="showNextPage">
             <el-button type="primary" :loading="loading" @click="loadMore">加载更多</el-button>
+          </div>
+          <div class="scroll-more"
+            v-infinite-scroll="scrollMore"
+            infinite-scroll-disabled="busy"
+            infinite-scroll-distance="410"
+            >
+            <img src="/imgs/loading-svg/loading-spinning-bubbles.svg" alt="" v-show="loading">
           </div>
           <no-data v-if="!loading && list.length==0"></no-data>
         </div>
@@ -67,6 +74,7 @@
   import Loading from '../components/Loading.vue';
   import NoData from '../components/NoData.vue';
   import { Pagination,Button } from 'element-ui';
+  import  infiniteScroll  from 'vue-infinite-scroll';
   export default{
     name:'order-list',
     components:{
@@ -76,13 +84,18 @@
       [Pagination.name]:Pagination,
       [Button.name]:Button
     },
+    directives:{
+      infiniteScroll
+    },
     data(){
       return{
         list:[],
         loading:false,
         pageSize:10,
         pageNum:1,
-        total:0
+        total:0,
+        busy:false,
+        showNextPage:true
       }
     },
     mounted(){
@@ -91,6 +104,7 @@
     methods:{
       getOrderList(){
         this.loading = true;
+        this.busy = true;
         this.axios.get('/orders',{
           params:{
             pageNum:this.pageNum
@@ -99,6 +113,8 @@
           this.loading = false;
           this.list = this.list.concat(res.list);
           this.total = res.total;
+          this.showNextPage = res.hasNextPage;
+          this.busy = false;
         }).catch(()=>{
           this.loading = false;
         })
@@ -118,6 +134,30 @@
       loadMore(){
         this.pageNum++;
         this.getOrderList();
+      },
+      scrollMore(){
+        this.busy = true;
+        setTimeout(()=>{
+          this.pageNum++;
+          this.getList();
+        },500)
+      },
+      getList(){
+        this.loading = true;
+        this.axios.get('/orders',{
+          params:{
+            pageSize:10,
+            pageNum:this.pageNum
+          }
+        }).then((res)=>{
+          this.list = this.list.concat(res.list);
+          this.loading = false;
+          if(res.hasNextPage){
+            this.busy = false;
+          }else{
+            this.busy = true;
+          }
+        })
       }
     }
   }

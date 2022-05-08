@@ -363,7 +363,7 @@ export default {
         }
         .list-box{
           .list{
-            @include flex();
+            @include flex();//使用flex布局
             width: 986px;
             margin-bottom: 14px;
             &:last-child{

@@ -52,14 +52,20 @@ export default {
   methods:{
     //登录初始为 jack,密码也为jack
     login(){
+      //拿到用户输入的账号密码，因为数据是双向绑定的
       let { username,password } = this;
       this.axios.post('/user/login',{
+        //这里是简写，key和value一样
         username,
         password
       }).then((res)=>{
+        //将信息存到cookie中，expires表示过期时间
         this.$cookie.set('userId',res.id,{expires:'Session'});
+
+        //因为登录成功以后要在首页显示用户名，所以使用vuex进行管理
         // this.$store.dispatch('saveUserName',res.username);
         this.saveUserName(res.username);
+        //登录成功，跳转到首页
         this.$router.push({
           name:'index',
           params:{
@@ -69,6 +75,8 @@ export default {
       })
     },
     ...mapActions(['saveUserName']),
+
+    //注册
     register(){
       this.axios.post('/user/register',{
         username:'admin1',

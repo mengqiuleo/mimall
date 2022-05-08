@@ -13,6 +13,7 @@
   &.slide-leave-active{
     top:-100%;
   }
+  //对于这些顺序都有严格的要求，最好按照官方文档的顺序
   &.slide-enter{
     top:-100%;
   }

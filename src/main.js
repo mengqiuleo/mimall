@@ -20,7 +20,7 @@ axios.interceptors.response.use(function(response){
   if(res.status == 0) {
     return res.data;
   }else if(res.data == 10){
-    if(path!='#/index'){
+    if(path!=='#/index'){
       window.location.href = '/#/login';
     }
     return Promise.reject(res);
@@ -31,7 +31,7 @@ axios.interceptors.response.use(function(response){
 },(error)=>{
   let res = error.response;
   Message.error(res.data.message);
-  return Promise.reject(res);
+  return Promise.reject(error);
 })
 
 Vue.use(VueAxios,axios)

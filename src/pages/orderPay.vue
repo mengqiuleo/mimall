@@ -57,6 +57,7 @@
         </div>
       </div>
     </div>
+    <!-- 这里是我们引入的一个组件，这个组件在页面上显示的是一个模态框，当微信二维码返回后，会插入到这个组件中 -->
     <scan-pay-code v-if="showPay" @close="closePayModal" :img="payImg"></scan-pay-code>
     <modal
       title="支付确认"
@@ -143,12 +144,13 @@ export default{
       this.showPayModal = true;
       clearInterval(this.T);
     },
+    //轮询订单状态
     loopOrderState(){
       this.T = setInterval(()=>{
         this.axios.get(`/order/${this.orderId}`).then((res)=>{
-          if(res.statue == 10){
-            clearInterval(this.T);
-            this.goOrderList();
+          if(res.status == 20){
+            clearInterval(this.T);//清除定时器
+            this.goOrderList();//跳转到订单列表页
           }
         })
       },1000);

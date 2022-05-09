@@ -30,12 +30,14 @@ export default {
   },
   methods: {
     initHeight(){
+      //获取页面滚动条的偏移量
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
       this.isFixed = scrollTop >152 ? true:false;
 
     }
   },
   destroyed(){
+    //离开页面时，要将事件销毁，注意要通过冒泡的方式
     window.removeEventListener('scroll',this.initHeight,false);
   }
 }

@@ -39,7 +39,7 @@
 <script>
 import { mapActions } from "vuex";
 import { Message } from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css';
+
 export default {
   name: 'login',
   data(){
@@ -65,7 +65,7 @@ export default {
         //因为登录成功以后要在首页显示用户名，所以使用vuex进行管理
         // this.$store.dispatch('saveUserName',res.username);
         this.saveUserName(res.username);
-        //登录成功，跳转到首页
+        //登录成功，跳转到首页，并传递参数，来证明是从登录页面跳转到首页的
         this.$router.push({
           name:'index',
           params:{
@@ -83,6 +83,7 @@ export default {
         password:'admin1',
         email:'admin1@163.com'
       }).then(()=>{
+        //this.$message.success('注册成功');
         Message.success('注册成功');
       })
     }

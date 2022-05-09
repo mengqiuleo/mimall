@@ -6,7 +6,7 @@ import VueLazyLoad from 'vue-lazyload'
 import VueCookie from 'vue-cookie'
 import store from './store'
 import { Message } from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css';
+//import 'element-ui/lib/theme-chalk/index.css';
 import App from './App.vue'
 
 //# 根据前端的跨域方式做调整
@@ -39,8 +39,12 @@ Vue.use(VueCookie)
 Vue.use(VueLazyLoad,{
   loading:'/imgs/loading-svg/loading-bars.svg'
 })
-// Vue.prototype.$message = Message;
+
 Vue.config.productionTip = false
+
+ //Vue.use(Message)
+
+Vue.prototype.$message = Message;
 
 new Vue({
   store,

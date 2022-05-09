@@ -11,7 +11,7 @@ export default {
   name:'ali-pay',
   data() {
     return {
-      orderId:this.$route.query.orderId,
+      orderId:this.$route.query.orderId,//获取我们的订单ID
       content:''
     };
   },

@@ -62,7 +62,6 @@ import OrderHeader from "../components/OrderHeader.vue";
 import ServiceBar from "../components/ServiceBar.vue";
 import NavFooter from "../components/NavFooter.vue";
 import { Message } from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css';
 export default {
   name:'cart',
   components:{
@@ -92,7 +91,8 @@ export default {
           selected = item.productSelected;
       if(type == '-'){
         if(quantity == 1){
-          Message.info('商品至少保留一件'); 
+          this.$message.info("商品至少保留一件");
+          //Message.info('商品至少保留一件'); 
           return;
         }
         --quantity;

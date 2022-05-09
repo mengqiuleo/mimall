@@ -200,12 +200,13 @@ export default{
       this.checkedItem = {};
       this.showEditModal = true;
     },
-    // 打开新增地址弹框
+    // 编辑新增地址弹框
     editAddressModal(item){
       this.userAction = 1;
       this.checkedItem = item;
       this.showEditModal = true;
     },
+    //删除地址
     delAddress(item){
       this.checkedItem = item;
       this.userAction = 2;
@@ -274,6 +275,7 @@ export default{
         })
       })
     },
+    //订单提交
     orderSubmit(){
       let item = this.list[this.checkedIndex];
       if(!item){

@@ -168,7 +168,7 @@
 
 <script>
 import { mapState } from "vuex";
-import { Message } from 'element-ui'
+//import { Message } from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css';
 
 export default {
@@ -211,7 +211,8 @@ export default {
     },
     loginOut(){
       this.axios.post('/user/logout').then(()=>{
-        Message.success('退出成功');
+        this.$message.success("退出成功");
+        //Message.success('退出成功');
         this.$cookie.set('userId','',{expires:'-1'});
         this.$store.dispatch('saveUserName','');
         this.$store.dispatch('saveCartCount','0');
@@ -228,6 +229,7 @@ export default {
   },
   mounted(){
     this.getProductList();
+    //获取参数，判断是否是从登录页面跳转过来的
     let params = this.$route.params;
     if(params && params.from =='login'){
       this.getCartCount();

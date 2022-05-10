@@ -21,7 +21,7 @@
 
 ### 商城页面与组件
 
-![](E:\note\vue项目\mimall\图片\页面与组件.jpg)
+![](https://gitee.com/mengqiuleo/mimall/blob/master/readmeImg/%E9%A1%B5%E9%9D%A2%E4%B8%8E%E7%BB%84%E4%BB%B6.jpg)
 
 
 

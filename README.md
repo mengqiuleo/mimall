@@ -18,72 +18,13 @@
 
 ### 商城页面与组件
 
-#### 页面
-
-- 商品首页
-- 登录
-- 商品产品站
-- 商品详情
-- 购物车
-- 订单确认
-- 订单支付（微信/支付宝）
-- 订单列表
-
-
-
-#### 组件
-
-- NavHeader(导航组件)
-- NavFooter(底部组件)
-- ServiceBar(服务条组件)
-- ProductParam(产品参数组件)
-- OrderHeader(订单头部组件)
-- Loading(加载组件)
-- Modal(弹框组件)
-- NodData(无数据组件)
-- ScanPayCode(支付组件)
+![](https://cdn.jsdelivr.net/gh/mengqiuleo/images/202206241746396.jpg)
 
 
 
 ### 技术栈
 
-#### 项目架构
-
-- 跨域方案
-- 目录结构规范
-- 常用插件介绍
-- Router封装
-- Storage封装
-- 接口错误拦截
-- 接口环境设置
-- Mock设置
-
-
-
-#### 框架
-
-- Vue2
-- Vue Router
-- Vuex
-- axios
-- ElementUI
-- Scss/Mixin
-
-
-
-#### 其他知识
-
-- 生成支付二维码
-- 图片懒加载
-- 项目优化
-
-
-
-#### 动画
-
-- Vue-Transition
-
-
+![](https://cdn.jsdelivr.net/gh/mengqiuleo/images/202206241746397.jpg)
 
 
 
@@ -106,6 +47,26 @@
 
 
 
+### 简单使用
+
+npm install 下载依赖
+
+npm run serve 本地运行
+
+#### 登录账号
+
+**登录账号和密码：账号：admin  密码：admin**
+
+
+
+#### 源码说明：
+
+- src目录下是源码
+- public目录下存放了一些用到的图片
+- resource目录下存放了接口文档
+
+
+
 ### 项目笔记
 
 [【Vue】仿小米商城系统（一）](https://blog.csdn.net/weixin_52834435/article/details/124681288?spm=1001.2014.3001.5501)
@@ -120,78 +81,60 @@
 
 ### 商城各页面展示
 
-点击这里👉[各页面展示](https://gitee.com/mengqiuleo/mimall/tree/master/readmeImg)
+#### 商品首页
+
+首页各个组件的静态代码实现，并实现了图片懒加载，实现了swiper轮播图。
+
+![](https://cdn.jsdelivr.net/gh/mengqiuleo/images/202206241746399.jpg)
 
 
 
-### 项目目录
+#### 产品站
 
-```
-mimall
-├─ .gitignore
-├─ babel.config.js
-├─ package-lock.json
-├─ package.json
-├─ README.md
-├─ readmeImg
-│  ├─ 产品站页.jpg
-│  ├─ 产品详情页.jpg
-│  ├─ 微信支付页.jpg
-│  ├─ 技术栈.jpg
-│  ├─ 支付宝页面.jpg
-│  ├─ 支付页面.jpg
-│  ├─ 登录页面.jpg
-│  ├─ 目录结构.jpg
-│  ├─ 订单列表页.jpg
-│  ├─ 订单确认页.jpg
-│  ├─ 购物车页.jpg
-│  ├─ 页面与组件.jpg
-│  └─ 首页.jpg
-├─ src
-│  ├─ api
-│  │  └─ index.js
-│  ├─ App.vue
-│  ├─ assets
-│  │  ├─ logo.png
-│  │  └─ scss
-│  │     ├─ base.scss
-│  │     ├─ button.scss
-│  │     ├─ config.scss
-│  │     ├─ mixin.scss
-│  │     ├─ modal.scss
-│  │     └─ reset.scss
-│  ├─ components
-│  │  ├─ Loading.vue
-│  │  ├─ Modal.vue
-│  │  ├─ NavFooter.vue
-│  │  ├─ NavHeader.vue
-│  │  ├─ NoData.vue
-│  │  ├─ OrderHeader.vue
-│  │  ├─ ProductParam.vue
-│  │  ├─ ScanPayCode.vue
-│  │  └─ ServiceBar.vue
-│  ├─ main.js
-│  ├─ pages
-│  │  ├─ alipay.vue
-│  │  ├─ cart.vue
-│  │  ├─ detail.vue
-│  │  ├─ home.vue
-│  │  ├─ index.vue
-│  │  ├─ login.vue
-│  │  ├─ order.vue
-│  │  ├─ orderConfirm.vue
-│  │  ├─ orderList.vue
-│  │  ├─ orderPay.vue
-│  │  └─ product.vue
-│  ├─ router.js
-│  ├─ storage
-│  │  └─ index.js
-│  ├─ store
-│  │  ├─ action.js
-│  │  ├─ index.js
-│  │  └─ mutations.js
-│  └─ util
-│     └─ index.js
-└─ vue.config.js
+产品站页面吸顶组件、参数组件实现。
 
-```
+![]()![产品站页](https://cdn.jsdelivr.net/gh/mengqiuleo/images/202206241746400.jpg)
+
+#### 商品详情
+
+商品详情交互接口实现。
+
+![](https://cdn.jsdelivr.net/gh/mengqiuleo/images/202206241746401.jpg)
+
+
+
+#### 登录页面：账号 admin 密码 admin
+
+登录页面交互和接口完整代码实现。
+
+![](https://cdn.jsdelivr.net/gh/mengqiuleo/images/202206241746402.jpg)
+
+#### 订单确认
+
+订单确认页面中部分静态模块实现以及接口功能实现。
+
+![](https://cdn.jsdelivr.net/gh/mengqiuleo/images/202206241746403.jpg)
+
+#### 购物车页面
+
+购物车头部组件以及购物车所有功能的动态交互实现。
+
+![](https://cdn.jsdelivr.net/gh/mengqiuleo/images/202206241746404.jpg)
+
+#### 订单支付页面
+
+订单结算交互实现，同时包含微信支付和支付宝支付同后台对接。
+
+![](https://cdn.jsdelivr.net/gh/mengqiuleo/images/202206241746405.jpg)
+
+#### 支付宝支付
+
+![](https://cdn.jsdelivr.net/gh/mengqiuleo/images/202206241746406.jpg)
+
+#### 微信支付
+
+![](https://cdn.jsdelivr.net/gh/mengqiuleo/images/202206241746407.jpg)
+
+#### 订单列表
+
+![](https://cdn.jsdelivr.net/gh/mengqiuleo/images/202206241746408.jpg)
